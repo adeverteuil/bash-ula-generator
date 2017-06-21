@@ -41,7 +41,7 @@ fi
 
 echo "For a deterministic calculation, you may enter the ntp clock time."
 echo "Leave empty to query an NTP server."
-read -p "Clock: "
+read -p "Clock: " clock
 if [ -z "${clock}" ]; then
     clock=$(ntpq -c "rv 0 clock" 0.pool.ntp.org | cut -c7-23)
     # Input: "clock=dcf4268b.208dd000  Tue, Jun 20 2017 18:56:11.127"
@@ -52,6 +52,8 @@ if [ "${#clock}" -ne 16 ]; then
     die "Time in NTP format is 64 bits, "\
         "or 16 characters in hex representation. "\
         "You entered: \"${clock}\"."
+fi
+
 
 if [ ! -r oui.txt ]; then
     wget http://standards.ieee.org/regauth/oui/oui.txt
