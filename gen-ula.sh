@@ -55,8 +55,8 @@ if [ "${#clock}" -ne 16 ]; then
 fi
 
 
-if [ ! -r oui.txt ]; then
-    wget http://standards.ieee.org/regauth/oui/oui.txt
+if [ ! -r "oui.txt" ]; then
+    wget "http://standards.ieee.org/regauth/oui/oui.txt"
 fi
 
 # MAC Vendor check
@@ -79,9 +79,7 @@ macl=`echo $mac | cut -c7-12`
 # reversing u/l bit
 case $second in
     [13579bdf])
-        echo "Error"
-        echo "MAC-address = $mac is a group MAC address"
-        exit
+        die "MAC-address \"${mac}\" is a group MAC address"
         ;;
     0)
         second_rev=2
