@@ -56,7 +56,7 @@ fi
 
 
 if [ ! -r "oui.txt" ]; then
-    wget "http://standards.ieee.org/regauth/oui/oui.txt"
+    wget "http://standards-oui.ieee.org/oui.txt"
 fi
 
 # MAC Vendor check
