@@ -1,6 +1,9 @@
 # Bash ULA Generator
 Generate an IPv6 Unique Local Address prefix
 
+Timothe Litt <litt@acm.org> - bugfixes and simplified usage
+2020-02-03
+
 Alexandre de Verteuil <alexandre@deverteuil.net>  
 2017-06-20
 
@@ -8,11 +11,15 @@ Based on scripts from **Shinsuke Suzuki** and **Holger Zuleger**, available unde
 
 ## Usage
 
-Simply run in a bash shell. You will be prompted for your physical MAC address (guessing "eth0" is no longer relevant in 2017).
+Simply run in a bash shell.  For additional options, use `-h`
 
 ## Requirements
 
-`wget`, `ntpq`
+`wget`, `cut`, `tr`, `sed`, `grep`, `tail`, `head`, `sort`, `which`
+
+## Optional
+
+`ntpq`, `ntpdate`, `ip`, `ifconfig`
 
 ## Improvements over other scripts
 
@@ -23,4 +30,5 @@ Simply run in a bash shell. You will be prompted for your physical MAC address (
 ## References
 
  - [RFC 4193 — Unique Local IPv6 Unicast Addresses](https://tools.ietf.org/html/rfc4193)
+ - [RFC 3513 - Internet Protocol Version 6 (IPv6) Addressing Architecture](https://tools.ietf.org/html/rfc3513)
  - [Unique local address](https://en.wikipedia.org/wiki/Unique_local_address) on Wikipedia
